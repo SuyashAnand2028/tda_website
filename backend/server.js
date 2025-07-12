@@ -40,9 +40,29 @@ app.use('/api/events', eventRoutes);
 app.use('/api/news', newsRoutes);
 app.use('/api/forms', formRoutes);
 
-// Health check endpoint
+// Health check endpoints
 app.get('/', (req, res) => {
   res.json({ message: 'TDA Backend Server is running!', timestamp: new Date().toISOString() });
+});
+
+app.get('/api/health', (req, res) => {
+  const dbStatus = mongoose.connection.readyState;
+  const dbStatusText = {
+    0: 'disconnected',
+    1: 'connected', 
+    2: 'connecting',
+    3: 'disconnecting'
+  }[dbStatus] || 'unknown';
+
+  res.json({ 
+    message: 'TDA Backend Server is running!', 
+    timestamp: new Date().toISOString(),
+    database: {
+      status: dbStatusText,
+      connected: dbStatus === 1
+    },
+    environment: process.env.NODE_ENV || 'development'
+  });
 });
 
 // Error handling middleware
