@@ -41,7 +41,7 @@ app.use('/api/news', newsRoutes);
 app.use('/api/forms', formRoutes);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/', (req, res) => {
   res.json({ message: 'TDA Backend Server is running!', timestamp: new Date().toISOString() });
 });
 
