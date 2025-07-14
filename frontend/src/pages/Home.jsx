@@ -17,7 +17,7 @@ const Home = () => {
           <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">What is TDA?</h2>
             <p className="text-gray-600 leading-relaxed">
-              TDA (The Design Agency) is a forward-thinking creative agency that specializes in
+              TDA (The Data Alchemists) is a forward-thinking creative student body that specializes in
               branding, UI/UX design, and digital experiences. We help businesses define their identity
               and stand out in the digital world.
             </p>
