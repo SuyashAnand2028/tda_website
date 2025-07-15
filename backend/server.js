@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({origin:['http://localhost:3000']}));
+app.use(cors({origin:['http://localhost:3000','https://tda-website-client.vercel.app/']}));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
