@@ -1,9 +1,10 @@
-const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
+import multer from 'multer';
+import pkg from 'cloudinary';
+const { v2: cloudinaryV2 } = pkg;
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
 // Configure Cloudinary
-cloudinary.config({
+cloudinaryV2.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
@@ -12,7 +13,7 @@ cloudinary.config({
 // Create storage configuration for different types
 const createStorage = (folder, transformation = null) => {
   return new CloudinaryStorage({
-    cloudinary: cloudinary,
+    cloudinary: cloudinaryV2,
     params: {
       folder: folder,
       format: async (req, file) => 'jpg', // Force jpg format
@@ -86,9 +87,10 @@ const createUpload = (storage) => {
 const teamUpload = createUpload(teamStorage);
 const eventUpload = createUpload(eventStorage);
 const newsUpload = createUpload(newsStorage);
-module.exports = {
+
+export {
   teamUpload,
   eventUpload,
   newsUpload,
-  cloudinary,
+  cloudinaryV2 as cloudinary,
 };

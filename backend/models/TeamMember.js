@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const teamMemberSchema = new mongoose.Schema({
   name: {
@@ -70,4 +70,4 @@ const teamMemberSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('TeamMember', teamMemberSchema);
+export default mongoose.model('TeamMember', teamMemberSchema);

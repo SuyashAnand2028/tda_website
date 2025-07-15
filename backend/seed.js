@@ -1,7 +1,9 @@
-const mongoose = require('mongoose');
-const User = require('./models/User');
-const TeamMember = require('./models/TeamMember');
-require('dotenv').config();
+import mongoose from 'mongoose';
+import User from './models/User.js';
+import TeamMember from './models/TeamMember.js';
+import { config } from 'dotenv';
+
+config();
 
 const seedDatabase = async () => {
   try {

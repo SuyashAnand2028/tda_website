@@ -1,7 +1,8 @@
-const express = require('express');
-const TeamMember = require('../models/TeamMember');
-const authenticateToken = require('../middleware/auth');
-const { teamUpload } = require('../utils/upload');
+import express from 'express';
+import TeamMember from '../models/TeamMember.js';
+import authenticateToken from '../middleware/auth.js';
+import { teamUpload } from '../utils/upload.js';
+
 const router = express.Router();
 
 // Get all team members (public)
@@ -128,4 +129,4 @@ router.patch('/:id/toggle-active', authenticateToken, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,7 +1,8 @@
-const express = require('express');
-const Event = require('../models/Event');
-const authenticateToken = require('../middleware/auth');
-const { eventUpload } = require('../utils/upload');
+import express from 'express';
+import Event from '../models/Event.js';
+import authenticateToken from '../middleware/auth.js';
+import { eventUpload } from '../utils/upload.js';
+
 const router = express.Router();
 
 // Get all events (public - only published ones)
@@ -194,4 +195,4 @@ router.post('/:id/register', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

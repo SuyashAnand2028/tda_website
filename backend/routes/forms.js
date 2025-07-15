@@ -1,6 +1,7 @@
-const express = require('express');
-const FormSubmission = require('../models/FormSubmission');
-const authenticateToken = require('../middleware/auth');
+import express from 'express';
+import FormSubmission from '../models/FormSubmission.js';
+import authenticateToken from '../middleware/auth.js';
+
 const router = express.Router();
 
 // Submit form (public)
@@ -190,4 +191,4 @@ router.get('/stats/overview', authenticateToken, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,7 +1,8 @@
-const express = require('express');
-const News = require('../models/News');
-const authenticateToken = require('../middleware/auth');
-const { newsUpload } = require('../utils/upload');
+import express from 'express';
+import News from '../models/News.js';
+import authenticateToken from '../middleware/auth.js';
+import { newsUpload } from '../utils/upload.js';
+
 const router = express.Router();
 
 // Get all published news (public)
@@ -172,4 +173,4 @@ router.patch('/:id/like', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

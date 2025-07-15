@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const formSubmissionSchema = new mongoose.Schema({
   formType: {
@@ -68,4 +68,4 @@ const formSubmissionSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('FormSubmission', formSubmissionSchema);
+export default mongoose.model('FormSubmission', formSubmissionSchema);

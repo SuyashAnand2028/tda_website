@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const newsSchema = new mongoose.Schema({
   title: {
@@ -74,4 +74,4 @@ newsSchema.pre('save', function(next) {
   next();
 });
 
-module.exports = mongoose.model('News', newsSchema);
+export default mongoose.model('News', newsSchema);

@@ -1,18 +1,18 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+import express, { json, urlencoded } from 'express';
+import cors from 'cors';
+import { config } from 'dotenv';
+import mongoose from 'mongoose';
 
 // Load environment variables
-dotenv.config();
+config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tda_website', {
@@ -27,11 +27,11 @@ db.once('open', () => {
 });
 
 // Import routes
-const authRoutes = require('./routes/auth');
-const teamRoutes = require('./routes/team');
-const eventRoutes = require('./routes/events');
-const newsRoutes = require('./routes/news');
-const formRoutes = require('./routes/forms');
+import authRoutes from './routes/auth.js';
+import teamRoutes from './routes/team.js';
+import eventRoutes from './routes/events.js';
+import newsRoutes from './routes/news.js';
+import formRoutes from './routes/forms.js';
 
 // Routes
 app.use('/api/auth', authRoutes);
