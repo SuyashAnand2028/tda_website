@@ -41,9 +41,8 @@ app.use('/api/news', newsRoutes);
 app.use('/api/forms', formRoutes);
 
 // Health check endpoints
-app.get('/', (req, res) => {
-  res.json({ message: 'TDA Backend Server is running!', timestamp: new Date().toISOString() });
-});
+app.get('/', (req, res) => res.send('TDA Backend Server is running!'));
+  
 
 app.get('/api/health', (req, res) => {
   const dbStatus = mongoose.connection.readyState;
